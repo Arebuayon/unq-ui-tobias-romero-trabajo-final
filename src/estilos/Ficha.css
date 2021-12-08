@@ -1,0 +1,13 @@
+.ficha {
+    cursor: pointer;
+    display: inline-block;
+    width: 125px;
+    height: 125px;
+    margin: 5px;
+    background-color: rgb(250, 246, 0);
+    border: 3px solid rgb(243, 0, 0);
+  }
+.ficha:hover {
+    transform: scale(0.95);
+}
+
