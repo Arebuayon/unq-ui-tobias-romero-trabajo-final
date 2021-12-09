@@ -1,7 +1,12 @@
 .title{
-    color: red;
-    background-color: white;
-    border: black 1px solid;
-    top: 20px;
-    right: 600px;
+    position: relative;
+    font-size: 50px;
+    color: rgb(245, 210, 12);
+    left: 425px;
+    bottom: 200px;
+}
+
+.reload-button{
+    background-color: rgb(70, 0, 128);
+    color:rgb(0, 247, 74)
 }

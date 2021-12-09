@@ -15,6 +15,7 @@ const App = () =>{
   const [parejasCorrectas , setParejasCorrectas] = useState([])
   const [fichasAdivinadas , setFichasAdivinadas] = useState([])
   const [fichasAReiniciar , setFichasAReiniciar] = useState([])
+  const [estaComparando , setEstaComparando] = useState(false)
 
   useEffect(() =>{
     estadoInicial()
@@ -23,9 +24,11 @@ const App = () =>{
   const estadoInicial = () =>{
     setFichaElegida({})
     setPareja({})
+    setFichasVolteadas([])
     setFichasAdivinadas([])
     const mezclarAnimales = shuffleArray([...animales , ...animales]);
     setFichas(mezclarAnimales.map( (animal, index) => ({ index: index, animal}) ))
+    setEstaComparando(false)
   }
 
   useEffect(() =>{
@@ -50,23 +53,28 @@ const App = () =>{
   }
 
  const clickearFicha = (index , animal) =>{
-    if(fichaElegida.index == index){
+    if(fichaElegida.index == index || estaComparando ){
       return false
     }
+    
     if(!fichaElegida.animal){
       setFichaElegida({index, animal})
       
     }
     else if (!pareja.animal){
       setPareja({index, animal})
+      setEstaComparando(true)
     }
 
     return true
   }
 
   const compararFichas = () =>{
+    
     if (fichaElegida.animal && pareja.animal){
       (fichaElegida.animal == pareja.animal) ? parejaCorrecta() : volverAVoltear()
+      
+
     }
   }
   const parejaCorrecta = () => {
@@ -74,6 +82,7 @@ const App = () =>{
     agregarParejaCorrecta()
     setPareja({})
     setFichaElegida({})
+    setTimeout(() => setEstaComparando(false) , 1000)
   };
   const agregarParejaCorrecta = () =>{
     fichasAdivinadas.push(fichaElegida.index , pareja.index)
@@ -82,11 +91,14 @@ const App = () =>{
     setFichasVolteadas([fichaElegida.index , pareja.index])
     setPareja({})
     setFichaElegida({})
+    setTimeout(() => setEstaComparando(false) , 1000)
+    
   };
 
   const reiniciarPartida = () =>{
     voltearParaReinicio()
-    setTimeout(() => estadoInicial() , 1000)
+    setEstaComparando(true)
+    setTimeout(() => estadoInicial() , 400)
   }
   const voltearParaReinicio = () =>{
       const fichasAReiniciar = fichasAdivinadas.concat([fichaElegida.index])
@@ -102,6 +114,7 @@ return (
       parejasCorrectas={parejasCorrectas}
       fichasVolteadas = {fichasVolteadas}
       fichasAReiniciar = {fichasAReiniciar}
+      estaComparando = {estaComparando}
       />
     
   </div>

@@ -2,7 +2,7 @@ import React from "react";
 import Ficha from "./Ficha";
 import "../estilos/Tablero.css"
 
-const Tablero = ({fichas , clickearFicha , parejasCorrectas , fichasVolteadas, fichasAReiniciar}) =>{
+const Tablero = ({fichas , clickearFicha , parejasCorrectas , fichasVolteadas, fichasAReiniciar, estaComparando}) =>{
     
     return(
             <div className="tablero">
@@ -15,6 +15,7 @@ const Tablero = ({fichas , clickearFicha , parejasCorrectas , fichasVolteadas, f
                     parejasCorrectas = {parejasCorrectas}
                     fichasVolteadas = {fichasVolteadas}
                     fichasAReiniciar = {fichasAReiniciar}
+                    estaComparando = {estaComparando}
                     />)}
                     
             </div>

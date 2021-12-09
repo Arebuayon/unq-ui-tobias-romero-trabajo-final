@@ -1,4 +1,8 @@
 .tablero{
+  position: relative;
+  top : 100px;
   width: 600px;
   height: 600px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 }

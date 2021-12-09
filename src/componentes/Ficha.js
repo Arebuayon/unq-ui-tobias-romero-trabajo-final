@@ -2,7 +2,7 @@ import '../estilos/Ficha.css';
 import React, { useEffect, useState } from 'react';
 import ReactCardFlip from 'react-card-flip';
 
-const Ficha = ({id , animal , clickearFicha , parejasCorrectas, fichasVolteadas, fichasAReiniciar}) => {
+const Ficha = ({id , animal , clickearFicha , parejasCorrectas, fichasVolteadas, fichasAReiniciar, estaComparando}) => {
     const [volteada , setVolteada] = useState(false)
     const [adivinada , setAdivinada] = useState(false)
 
