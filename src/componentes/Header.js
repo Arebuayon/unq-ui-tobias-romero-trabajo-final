@@ -1,12 +1,13 @@
 import React from 'react';
+import '../estilos/Header.css'
 
-const Header = () =>{
+const Header = ({reiniciarPartida}) =>{
 
     return(
         <header>
             <div className="title">MEMO-TEST</div>
             <div>
-                <button className="reload-button">
+                <button className="reload-button" onClick = {reiniciarPartida}>
                     Reiniciar partida
                 </button>
             </div>
