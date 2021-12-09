@@ -1,25 +1,16 @@
 .ficha {
-    display: inline-block;
-    font-size: 55px;
+    cursor: pointer;
+    text-align:center;
+    font-size: 400%;
+    width: 100%;
   }
 .dorso-ficha{
-  cursor: pointer;
-  text-align:center;
-  line-height: 125px;
-  width: 125px;
-  height: 125px;
-  margin: 5px;
+
   background-color: rgb(119, 0, 231);
   border: 3px solid rgb(45, 0, 243);
 }
 
 .cara-ficha{
-  cursor: pointer;
-  text-align:center;
-  line-height: 125px;
-  width: 125px;
-  height: 125px;
-  margin: 5px;
   background-color: rgb(235, 252, 0);
   border: 3px solid rgb(243, 0, 0);
 }

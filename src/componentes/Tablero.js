@@ -15,7 +15,6 @@ const Tablero = ({fichas , clickearFicha , parejasCorrectas , fichasVolteadas, f
                     parejasCorrectas = {parejasCorrectas}
                     fichasVolteadas = {fichasVolteadas}
                     fichasAReiniciar = {fichasAReiniciar}
-                    estaComparando = {estaComparando}
                     />)}
                     
             </div>

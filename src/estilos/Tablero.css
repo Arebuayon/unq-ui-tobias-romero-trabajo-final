@@ -1,8 +1,9 @@
 .tablero{
-  position: relative;
-  top : 100px;
-  width: 600px;
-  height: 600px;
+  height: 500px;
+  width: 500px;
   display: grid;
+  gap: 2rem;
+  margin: 0 auto;
+  justify-items: center;
   grid-template-columns: repeat(4, 1fr);
 }

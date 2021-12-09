@@ -1,12 +1,19 @@
 .title{
+    top:20px;
     position: relative;
     font-size: 50px;
+    text-align: center;
     color: rgb(245, 210, 12);
-    left: 425px;
-    bottom: 200px;
+
 }
 
 .reload-button{
+    position: relative;
     background-color: rgb(70, 0, 128);
-    color:rgb(0, 247, 74)
+    color:rgb(0, 247, 74);
+    left : 75vw;
+    top : 40vh;
+    height: 50px;
+    width: 200px;
+    font-size: 20px;
 }

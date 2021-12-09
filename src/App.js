@@ -16,6 +16,7 @@ const App = () =>{
   const [fichasAdivinadas , setFichasAdivinadas] = useState([])
   const [fichasAReiniciar , setFichasAReiniciar] = useState([])
   const [estaComparando , setEstaComparando] = useState(false)
+  const [partidaGanada , setPartidaGanada] = useState(false)
 
   useEffect(() =>{
     estadoInicial()
@@ -23,12 +24,12 @@ const App = () =>{
   
   const estadoInicial = () =>{
     setFichaElegida({})
-    setPareja({})
     setFichasVolteadas([])
     setFichasAdivinadas([])
     const mezclarAnimales = shuffleArray([...animales , ...animales]);
     setFichas(mezclarAnimales.map( (animal, index) => ({ index: index, animal}) ))
     setEstaComparando(false)
+    setPareja({})
   }
 
   useEffect(() =>{
@@ -38,7 +39,7 @@ const App = () =>{
 
   const verificarVictoria = () =>{
     if (fichas.length != 0  && fichas.length == fichasAdivinadas.length){
-      setTimeout(() => alert("Ganaste") , 1000)
+      setPartidaGanada(true)
     }
   }
   const shuffleArray = array => {
@@ -96,6 +97,7 @@ const App = () =>{
   };
 
   const reiniciarPartida = () =>{
+    setPartidaGanada(false)
     voltearParaReinicio()
     setEstaComparando(true)
     setTimeout(() => estadoInicial() , 400)
@@ -107,6 +109,11 @@ const App = () =>{
 
 return (
   <div className = 'app'>
+  {partidaGanada && 
+      <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Has Ganado!</h4>
+        <p>Conseguiste encontrar todas las parejas!!!!!</p>
+      </div> }
       <Header reiniciarPartida = {reiniciarPartida}/>
       <Tablero 
       fichas = {fichas} 
@@ -114,7 +121,6 @@ return (
       parejasCorrectas={parejasCorrectas}
       fichasVolteadas = {fichasVolteadas}
       fichasAReiniciar = {fichasAReiniciar}
-      estaComparando = {estaComparando}
       />
     
   </div>
