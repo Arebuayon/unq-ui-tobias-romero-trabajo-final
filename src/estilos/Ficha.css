@@ -1,12 +1,29 @@
 .ficha {
-    cursor: pointer;
     display: inline-block;
-    width: 125px;
-    height: 125px;
-    margin: 5px;
-    background-color: rgb(250, 246, 0);
-    border: 3px solid rgb(243, 0, 0);
+    font-size: 55px;
   }
+.dorso-ficha{
+  cursor: pointer;
+  text-align:center;
+  line-height: 125px;
+  width: 125px;
+  height: 125px;
+  margin: 5px;
+  background-color: rgb(119, 0, 231);
+  border: 3px solid rgb(243, 0, 0);
+}
+
+.cara-ficha{
+  cursor: pointer;
+  text-align:center;
+  line-height: 125px;
+  width: 125px;
+  height: 125px;
+  margin: 5px;
+  background-color: rgb(235, 252, 0);
+  border: 3px solid rgb(243, 0, 0);
+}
+
 .ficha:hover {
     transform: scale(0.95);
 }

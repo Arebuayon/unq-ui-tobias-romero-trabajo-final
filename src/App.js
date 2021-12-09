@@ -1,5 +1,4 @@
 import React , {useEffect, useState} from 'react';
-import Ficha from './componentes/Ficha'
 import Header from './componentes/Header'
 import './App.css';
 import Tablero from './componentes/Tablero'
@@ -10,11 +9,20 @@ const App = () =>{
   
   
   const [fichas , setFichas] = useState([]);
+  const [fichaElegida , setFichaElegida] = useState({})
+  const [pareja , setPareja] = useState({})
+  const [fichasVolteadas , setFichasVolteadas] = useState([])
+  const [parejasCorrectas , setParejasCorrectas] = useState([])
 
   useEffect(() =>{
     const mezclarAnimales = shuffleArray([...animales , ...animales]);
     setFichas(mezclarAnimales.map( (animal, index) => ({ index: index, animal}) ))
   },[])
+
+  useEffect(() =>{
+    console.log("comparanding")
+    compararFichas()
+  },[pareja])
 
   const shuffleArray = array => {
     let i = array.length - 1;
@@ -27,11 +35,47 @@ const App = () =>{
     return array;
   }
 
+ const clickearFicha = (index , animal) =>{
+    if(fichaElegida.index == index){
+      return false
+    }
+    if(!fichaElegida.animal){
+      setFichaElegida({index, animal})
+      
+    }
+    else if (!pareja.animal){
+      setPareja({index, animal})
+    }
+
+    return true
+  }
+
+  const compararFichas = () =>{
+    if (fichaElegida.animal && pareja.animal){
+      (fichaElegida.animal == pareja.animal) ? parejaCorrecta() : volverAVoltear()
+    }
+  }
+  const parejaCorrecta = () => {
+    setParejasCorrectas([fichaElegida.index , pareja.index])
+    setPareja({})
+    setFichaElegida({})
+  };
+  const volverAVoltear = () => {
+    setFichasVolteadas([fichaElegida.index , pareja.index])
+    setPareja({})
+    setFichaElegida({})
+  };
+
 return (
   <div className = 'app'>
-    <div>
-      <Tablero fichas = {fichas}/>
-    </div>
+    
+      <Tablero 
+      fichas = {fichas} 
+      clickearFicha={clickearFicha}
+      parejasCorrectas={parejasCorrectas}
+      fichasVolteadas = {fichasVolteadas}
+      />
+    
   </div>
 
 
